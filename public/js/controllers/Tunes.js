@@ -1,5 +1,5 @@
 function Tunes ($scope) {
-	$scope.hello = 'world'
+	$scope.title = 'Tunes'
 }
 
 angular
