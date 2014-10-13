@@ -1,3 +1,11 @@
+body
+  background-color #111
+  color white
+  font-family 'Raleway', sans-serif
+
+*
+  box-sizing border-box
+
 input, textarea
   display: block;
   height: 34px;
@@ -23,9 +31,13 @@ a
   color white
   cursor pointer
   text-decoration none
+  &:hover
+    color gray
 
-a:hover
-  color gray
+a.active
+  font-weight bold
+  &:hover
+    color white
 
 table
   padding 20px

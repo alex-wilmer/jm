@@ -89,6 +89,16 @@ td {
 a img {
   border: none;
 }
+body {
+  background-color: #111;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 input,
 textarea {
   display: block;
@@ -130,6 +140,12 @@ a {
 }
 a:hover {
   color: #808080;
+}
+a.active {
+  font-weight: bold;
+}
+a.active:hover {
+  color: #fff;
 }
 table {
   padding: 20px;
@@ -192,7 +208,6 @@ body {
   background-color: #111;
   color: #fff;
   font-family: 'Raleway', sans-serif;
-  overflow: hidden;
 }
 * {
   -webkit-box-sizing: border-box;
@@ -263,7 +278,6 @@ section.tunes .list {
   text-align: left;
 }
 section.tunes .list .tune {
-  font-size: 1.2em;
   padding-bottom: 5px;
 }
 section.tunes .list .tune a {
