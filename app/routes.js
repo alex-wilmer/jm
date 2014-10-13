@@ -95,6 +95,10 @@ module.exports = function(app) {
 			res.json({message: 'Artist deleted.'})
 		})
 	})
+
+	app.get('/admin', function(req, res){
+		res.sendfile('./admin/views/index.html')
+	})
 	
 	// frontend routes 
 	// route to handle all angular requests
