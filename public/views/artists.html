@@ -1,1 +1,6 @@
-{{title}}
+<section class="artists">
+	<a ng-repeat="artist in artists" class="artist"
+		style="background-image:url({{artist.imageUrl}})" ng-href="/artists/{{artist.url}}">
+		<div class="name">{{artist.name}}</div>
+	</a>
+</section>

@@ -1,21 +1,22 @@
 @import 'nib'
 global-reset()
 
-@import url('')
+@import 'global'
+@import 'grid'
 
 body
   background-color #111
   color white
-  font-family 'Open Sans', sans-serif;
+  font-family 'Raleway', sans-serif
   overflow hidden
 
-a
-  color white
-  cursor pointer
-  text-decoration none
+*
+  box-sizing border-box
 
 .container
-  max-width 80%
+  width 80%
+  min-width 800px
+  max-width 800px
   margin 0 auto
   padding 20px
 
@@ -28,20 +29,26 @@ a
   width 20%
   min-width 200px
 
-.left-panel
-	width 200px
-	float left
-	nav
-	  margin-top 20px
-	  padding-left 40px
-	  text-align center
-	  width 120px
+.left
+	column 4
 
-	nav li
-	  padding-bottom 15px
-	  font-size 1.2em
+.right
+  column 8
 
-.right-panel
-	float left
-	padding 20px
-	width calc(100% - 240px)
+nav
+  text-align center
+  ul
+    margin-top 10px
+  li
+    font-size 1.2em
+    display inline
+    padding-right 12px
+
+.line
+  height 2px
+  background-color #ebebeb
+  margin 20px 0 20px 0
+
+@import 'tunes'
+@import 'artists'
+@import 'admin'

@@ -1,1 +1,8 @@
-<h1>{{title}}</h1>
+<section class="tunes">
+	<div class="list">
+		<ul ng-repeat="tune in tunes" class="tune">
+			<li><a ng-click="setTune($index)">{{tune.by}} - {{tune.name}}</a></li>
+		</ul>
+	</div>
+	<div ng-bind-html="tune.safeEmbedCode" class="video"></div>
+</section>

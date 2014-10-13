@@ -12,6 +12,22 @@ function config ($routeProvider, $locationProvider) {
   	templateUrl: 'views/artists.html',
   	controller: 'Artists'
   })
+  .when('/artists/:artistName', {
+    templateUrl: 'views/artist.html',
+    controller: 'Artist'
+  })
+  .when('/admin/tunes', {
+    templateUrl: 'views/admin/tunes.html',
+    controller: 'AdminTunes'
+  })
+  .when('/admin/science', {
+    templateUrl: 'views/admin/science.html',
+    controller: 'AdminScience'
+  })
+  .when('/admin/artists', {
+    templateUrl: 'views/admin/artists.html',
+    controller: 'AdminArtists'
+  })
   $locationProvider.html5Mode(true)
 }
 angular
