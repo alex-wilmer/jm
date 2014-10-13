@@ -1,1 +1,23 @@
-Hello admin world!
+<script src="libs/angular/angular.min.js"></script>
+<script src="libs/angular-route/angular-route.min.js"></script>
+<script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
+
+<div ng-app>
+<div class="container">
+		<nav>
+			<img src="http://www.junglistmanifesto.com/images/crest.gif" 
+			class="logo">
+			<ul>
+				<li><a href="/">TUNES</a></li>
+				<li><a href="/science">SCIENCE</a></li>
+				<li><a href="/artists">ARTISTS</a></li>
+				<li><a href="/sets">SETS</a></li>
+				<li><a href="/store">STORE</a></li>
+				<li><a href="/blog">BLOG</a></li>
+				<li><a href="/distribution">DISTRIBUTION</a></li>
+			</ul>
+		</nav>
+		<div class="line"></div>
+		<div ng-view></div>
+	</div>
+</div>
