@@ -1,6 +1,7 @@
 var Tune = require('./models/tune')
 var Artist = require('./models/artist')
-var Science = require('./models/science')
+
+var fs = require('fs')
 
 module.exports = function(app) {
 
@@ -98,20 +99,10 @@ module.exports = function(app) {
 	})
 
 	//SCIENCE
-	app.get('/api/science', function(req, res) {
-		Science.find(function(err, science) {
-			if (err) res.send(err)
-			res.json(science)
-		})
-	})
-
 	app.post('/api/science', function(req, res) {
-		var science = new Science()
-		science.blurb = req.body.blurb
-		//science.images = req.body.images
-		science.save(function(err){
-			if (err) res.send(err)
-			res.json({message: 'Science saved!'})
+		fs.writeFile('./public/data/science/blurb.json', JSON.stringify(req.body), "utf8", function (err) {
+		  if (err) throw err
+		  console.log('Log saved!')
 		})
 	})
 

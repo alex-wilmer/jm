@@ -16,12 +16,9 @@
 		<navigation></navigation>
 		<div class="line"></div>
 		<section class="admin" ng-controller="Science">
-			<div class="form">
 				Science blurb:<br>
 				<textarea placeholder="..." ng-model="science.blurb" class="blurb"></textarea>
 				<button ng-click="saveBlurb()">Save</button>
-				{{science.blurb}}
-			</div>
 			<div class="errors">
 				<b ng-repeat="error in errors">{{error}}</b>
 			</div>

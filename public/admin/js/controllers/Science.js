@@ -1,10 +1,10 @@
 function Science ($scope, $http) {
-	$http.get('/api/science').success(function(science) {
-		$scope.science = science
+	$scope.science = {}
+	$http.get('/data/science/blurb.json').success(function(science) {
+		$scope.science.blurb = science.blurb
 	})
 
 	$scope.saveBlurb = function() {
-		console.log($scope.science)
 		$http.post('/api/science', $scope.science)
 	}
 }

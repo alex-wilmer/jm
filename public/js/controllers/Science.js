@@ -1,7 +1,9 @@
-function Science ($scope, $http) {
-	$http.get('/api/science').success(function(science) {
-		$scope.science = science
+function Science ($scope, $http, $sce) {
+	$scope.science = {}
+	$http.get('/data/science/blurb.json').success(function(science) {
+		$scope.science.blurb = $sce.trustAsHtml(science.blurb)
 	})
+
 }
 
 angular
