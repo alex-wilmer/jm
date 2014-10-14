@@ -1,0 +1,47 @@
+<link rel="shortcut icon" href="img/favicon.ico" />
+<title>JM:ADMIN</title>
+<!-- CSS -->
+<link href='http://fonts.googleapis.com/css?family=Raleway:600,500,300,700,400,200' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/app.css">
+
+<script src="/libs/angular/angular.min.js"></script>
+<script src="/libs/angular-sanitize/angular-sanitize.min.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/directives/Navigation.js"></script>
+<script src="js/controllers/Tunes.js"></script>
+
+<div ng-app="app">
+<div class="container">
+		<navigation></navigation>
+		<div class="line"></div>
+		<section class="admin" ng-controller="Tunes">
+			<div class="form">
+				New tune:<br>
+				<input placeholder="Name.." ng-model="newTune.name">
+				<input placeholder="By.." ng-model="newTune.by">
+				<textarea placeholder="Paste embed code here.." ng-model="newTune.embedCode" class="url"></textarea>
+				<button ng-click="createTune()">Save</button>
+			</div>
+			<div class="errors">
+				<b ng-repeat="error in errors">{{error}}</b>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Artist</th>
+						<th>Remove</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="tune in tunes">
+						<td>{{tune.name}}</td>
+						<td>{{tune.by}}</td>
+						<td><a ng-click="removeTune($index)">✖</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</div>
+</div>

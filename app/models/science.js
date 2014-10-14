@@ -2,9 +2,8 @@ var mongoose = require('mongoose')
 var Schema   = mongoose.Schema
 
 var Science = new Schema({
-	name: String
-  , imageUrl: String
-  , bio: String
+	blurb: String
+  ,	images: [String]
 })
 
 module.exports = mongoose.model('Science', Science)

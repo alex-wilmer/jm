@@ -331,6 +331,10 @@ input,
 .bio {
   height: 200px;
 }
+.blurb {
+  width: 100%;
+  height: 300px;
+}
 .errors {
   display: inline;
   float: left;

@@ -1,5 +1,6 @@
 var Tune = require('./models/tune')
 var Artist = require('./models/artist')
+var Science = require('./models/science')
 
 module.exports = function(app) {
 
@@ -96,10 +97,33 @@ module.exports = function(app) {
 		})
 	})
 
-	app.get('/admin', function(req, res){
-		res.sendfile('./admin/views/index.html')
+	//SCIENCE
+	app.get('/api/science', function(req, res) {
+		Science.find(function(err, science) {
+			if (err) res.send(err)
+			res.json(science)
+		})
 	})
-	
+
+	app.post('/api/science', function(req, res) {
+		var science = new Science()
+		science.blurb = req.body.blurb
+		//science.images = req.body.images
+		science.save(function(err){
+			if (err) res.send(err)
+			res.json({message: 'Science saved!'})
+		})
+	})
+
+	//ADMIN FRONT END
+	app.get('/admin', function(req, res) {
+		res.sendfile('./public/admin/views/tunes.html')
+	})
+
+	app.get('/admin/:url', function(req, res) {
+		res.sendfile('./public/admin/views/' + req.params.url + '.html')
+	})
+
 	// frontend routes 
 	// route to handle all angular requests
 	app.get('*', function(req, res) {
