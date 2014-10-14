@@ -4,5 +4,10 @@
 			<li><a ng-click="setTune($index)" ng-class="{active: tune.active}">{{tune.by}} - {{tune.name}}</a></li>
 		</ul>
 	</div>
-	<div ng-bind-html="tune.safeEmbedCode" class="video"></div>
+	<div class="video">
+		<div id="loader-1" ng-hide="loaded">
+			<span></span><span></span><span></span><span></span><span></span>
+		</div>
+		<div ng-bind-html="tune.safeEmbedCode" ng-show="loaded"></div>
+	</div>
 </section>

@@ -1,6 +1,10 @@
 function Artists ($scope, $http) {
+
+	$scope.loaded = false
+
 	$http.get('/api/artists').success(function(artists) {
 		$scope.artists = artists
+		$scope.loaded = true
 	})
 
 	$scope.createArtist = function() {

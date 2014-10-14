@@ -1,6 +1,7 @@
 function Tunes ($scope, $http, $sce) {
 
 	var activeIndex = 0
+	$scope.loaded = false
 
 	$http.get('/api/tunes').success(function(tunes) {
 		if (tunes != null) {
@@ -14,6 +15,7 @@ function Tunes ($scope, $http, $sce) {
 		} else {
 			$scope.tunes = []
 		}
+		$scope.loaded = true
 	})
 
 	$scope.setTune = function(index) {

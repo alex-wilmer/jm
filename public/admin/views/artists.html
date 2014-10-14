@@ -12,10 +12,10 @@
 <script src="js/controllers/Artists.js"></script>
 
 <div ng-app="app">
-<div class="container">
+<div class="container" ng-controller="Artists" ng-show="loaded">
 		<navigation></navigation>
 		<div class="line"></div>
-			<section class="admin" ng-controller="Artists"> 
+			<section class="admin"> 
 				<div class="form">
 					New artist:<br>
 					<input placeholder="Name.." ng-model="newArtist.name">

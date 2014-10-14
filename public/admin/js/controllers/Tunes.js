@@ -1,6 +1,10 @@
 function Tunes ($scope, $http) {
+
+	$scope.loaded = false
+
 	$http.get('/api/tunes').success(function(tunes) {
 		$scope.tunes = tunes
+		$scope.loaded = true
 	})
 
 	$scope.createTune = function() {
