@@ -514,7 +514,10 @@ section.tunes .video {
   *margin: 0 1.0416666666667% -correction;
   text-align: right;
 }
-section.artists .artist {
+section.artists .artist,
+section.sets .artist,
+section.artists .set,
+section.sets .set {
   width: 150px;
   height: 150px;
   -webkit-background-size: cover;
@@ -533,11 +536,13 @@ section.artists .artist {
   background-color: rgba(0,0,0,0.7);
   font-weight: bold;
 }
-section.artist img {
+section.artist img,
+section.set img {
   width: 200px;
   float: left;
 }
-section.artist .bio {
+section.artist .bio,
+section.set .bio {
   float: left;
   margin-left: 20px;
   width: calc(100% - 220px);

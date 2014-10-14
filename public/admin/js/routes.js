@@ -12,6 +12,11 @@ function config ($routeProvider, $locationProvider) {
   	templateUrl: 'admin/views/artists.html',
   	controller: 'Artists'
   })
+  .when('/admin/sets', {
+    templateUrl: 'admin/views/sets.html',
+    controller: 'Sets'
+  })
+
   $locationProvider.html5Mode(true)
 }
 angular

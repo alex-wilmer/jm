@@ -1,5 +1,7 @@
 var Tune = require('./models/tune')
-var Artist = require('./models/artist')
+  , Artist = require('./models/artist')
+  , Set = require('./models//set')
+
 
 var fs = require('fs')
 
@@ -103,6 +105,26 @@ module.exports = function(app) {
 		fs.writeFile('./public/data/science/blurb.json', JSON.stringify(req.body), "utf8", function (err) {
 		  if (err) throw err
 		  console.log('Log saved!')
+		})
+	})
+
+	//SETS
+	app.get('/api/sets', function(req, res) {
+		Set.find(function(err, sets) {
+			if (err) res.send(err)
+			res.json(sets)
+		})
+	})
+
+	app.post('/api/sets', function(req, res) {
+		var set = new Set()
+		set.name = req.body.name
+		set.downloadUrl = req.body.downloadUrl
+		set.imageUrl = req.body.imageUrl
+		set.tracklist = req.body.tracklist
+		set.save(function(err) {
+			if (err) res.send(err)
+			res.json({message: "Set created!"})
 		})
 	})
 

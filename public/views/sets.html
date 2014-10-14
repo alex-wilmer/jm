@@ -1,0 +1,6 @@
+<section class="sets">
+	<a ng-repeat="set in sets" class="set"
+		style="background-image:url({{set.imageUrl}})" ng-href="/sets/{{set.url}}">
+		<div class="name">{{set.name}}</div>
+	</a>
+</section>

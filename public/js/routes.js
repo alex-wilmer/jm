@@ -16,17 +16,13 @@ function config ($routeProvider, $locationProvider) {
     templateUrl: 'views/artist.html',
     controller: 'Artist'
   })
-  .when('/admin/tunes', {
-    templateUrl: 'views/admin/tunes.html',
-    controller: 'AdminTunes'
+  .when('/sets', {
+    templateUrl: 'views/sets.html',
+    controller: 'Sets'
   })
-  .when('/admin/science', {
-    templateUrl: 'views/admin/science.html',
-    controller: 'AdminScience'
-  })
-  .when('/admin/artists', {
-    templateUrl: 'views/admin/artists.html',
-    controller: 'AdminArtists'
+  .when('/sets/:setName', {
+    templateUrl: 'views/set.html',
+    controller: 'Set'
   })
   $locationProvider.html5Mode(true)
 }

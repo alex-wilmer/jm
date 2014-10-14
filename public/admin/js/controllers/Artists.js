@@ -22,7 +22,7 @@ function Artists ($scope, $http) {
 		}
 	}
 
-	$scope.removeTune = function(index) {
+	$scope.removeArtist = function(index) {
 		$http.delete('/api/artists/' + $scope.artists[index]._id)
 		$scope.artists.splice(index, 1)
 	}
