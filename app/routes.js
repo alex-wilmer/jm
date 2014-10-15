@@ -117,6 +117,15 @@ module.exports = function(app) {
 		})
 	})
 
+	app.get('/api/sets/:setName', function(req, res) {
+		var setName = req.params.setName.replace(/_/g, ' ')
+		var setName = setName.replace(/%40/g, '@')
+		Set.find({name: setName}, function(err, set) {
+			if (err) res.send(err)
+			res.json(set)
+		})		
+	})
+
 	app.post('/api/sets', function(req, res) {
 		var set = new Set()
 		set.name = req.body.name
@@ -126,6 +135,13 @@ module.exports = function(app) {
 		set.save(function(err) {
 			if (err) res.send(err)
 			res.json({message: "Set created!"})
+		})
+	})
+
+	app.delete('/api/sets/:set_id', function(req, res) {
+		Set.remove({_id: req.params.set_id}, function(err) {
+			if (err) res.send(err)
+			res.json({message: 'Set deleted.'})
 		})
 	})
 
@@ -145,9 +161,7 @@ module.exports = function(app) {
 	})
 
 	app.get('/admin', function(req, res) {
-		if (!!auth.date) {
-			var date = new Date()
-			var minutes = date - auth.date
+		if (!!auth.date && new Date() - auth.date < 900000) {
 			res.sendfile('./public/admin/views/tunes.html')
 		} else {
 			res.redirect('/admin/login')
@@ -155,9 +169,7 @@ module.exports = function(app) {
 	})
 
 	app.get('/admin/:url', function(req, res) {
-		if (!!auth.date) {
-			var date = new Date()
-			var minutes = date - auth.date
+		if (!!auth.date && new Date() - auth.date < 900000) {
 			res.sendfile('./public/admin/views/' + req.params.url + '.html')
 		} else {
 			res.redirect('/admin/login')

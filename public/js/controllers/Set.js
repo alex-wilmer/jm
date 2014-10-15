@@ -1,7 +1,7 @@
 function Set ($scope, $http, $routeParams, $sce) {
-	$http.get('/api/sets/' + $routeParams.setName).success(function(set) {
-		set[0].safeTracklist = $sce.trustAsHtml(set[0].tracklist)
-		$scope.set = set[0]
+	$http.get('/api/sets/' + $routeParams.setName).success(function(sets) {
+		sets[0].safeTracklist = $sce.trustAsHtml(sets[0].tracklist)
+		$scope.set = sets[0]
 	})
 }
 
