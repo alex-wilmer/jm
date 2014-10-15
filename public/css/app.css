@@ -588,10 +588,14 @@ section.set .downloadUrl {
   text-align: center;
   margin: 20px;
   display: block;
+  color: Gold;
 }
 section.set ol {
   width: calc(100% - 200px);
   float: left;
   list-style: decimal;
   padding-left: 40px;
+}
+section.set ol li {
+  padding-bottom: 5px;
 }
