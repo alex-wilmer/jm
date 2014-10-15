@@ -36,7 +36,12 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="tune in tunes">
-						<td>{{tune.name}}</td>
+						<td>
+							<a ng-click="tune.editing=true" ng-hide="tune.editing">{{tune.name}}</a>
+							<form ng-submit="updateTuneName($index)" ng-show="tune.editing">
+								<input ng-model="reName" placeholder="{{tune.name}}">
+							</form>
+						</td>
 						<td>{{tune.by}}</td>
 						<td><a ng-click="removeTune($index)">✖</a></td>
 					</tr>

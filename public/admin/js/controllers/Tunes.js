@@ -3,8 +3,13 @@ function Tunes ($scope, $http) {
 	$scope.loaded = false
 
 	$http.get('/api/tunes').success(function(tunes) {
-		$scope.tunes = tunes
-		$scope.loaded = true
+		if (tunes) {
+			for (var i=0;i<tunes.length;i++) {
+				tunes.editing = false
+			}
+			$scope.tunes = tunes
+			$scope.loaded = true
+		}
 	})
 
 	$scope.createTune = function() {
@@ -22,6 +27,10 @@ function Tunes ($scope, $http) {
 		}
 	}
 
+/*	$scope.updateTuneName = function(index) {
+		$http.put()
+	}
+*/
 	$scope.removeTune = function(index) {
 		$http.delete('/api/tunes/' + $scope.tunes[index]._id)
 		$scope.tunes.splice(index, 1)
