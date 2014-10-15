@@ -2,6 +2,7 @@ var Tune = require('./models/tune')
   , Artist = require('./models/artist')
   , Set = require('./models//set')
 
+var auth = require('../config/auth')
 
 var fs = require('fs')
 
@@ -129,12 +130,38 @@ module.exports = function(app) {
 	})
 
 	//ADMIN FRONT END
+	app.get('/admin/login', function(req, res) {
+		res.sendfile('./public/admin/views/login.html')
+	})
+
+	app.post('/api/login', function(req, res) {
+		if (req.body.password === auth.password) {
+			auth.date = new Date()
+			res.redirect('/admin')
+		} else {
+			res.json({message: 'Wrong password!'})
+			console.log("wrong pw")
+		}
+	})
+
 	app.get('/admin', function(req, res) {
-		res.sendfile('./public/admin/views/tunes.html')
+		if (!!auth.date) {
+			var date = new Date()
+			var minutes = date - auth.date
+			res.sendfile('./public/admin/views/tunes.html')
+		} else {
+			res.redirect('/admin/login')
+		}
 	})
 
 	app.get('/admin/:url', function(req, res) {
-		res.sendfile('./public/admin/views/' + req.params.url + '.html')
+		if (!!auth.date) {
+			var date = new Date()
+			var minutes = date - auth.date
+			res.sendfile('./public/admin/views/' + req.params.url + '.html')
+		} else {
+			res.redirect('/admin/login')
+		}
 	})
 
 	// frontend routes 
