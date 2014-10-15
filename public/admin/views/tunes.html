@@ -1,4 +1,4 @@
-<link rel="shortcut icon" href="img/favicon.ico" />
+<link rel="shortcut icon" href="/img/favicon.ico" />
 <title>JM:ADMIN</title>
 <!-- CSS -->
 <link href='http://fonts.googleapis.com/css?family=Raleway:600,500,300,700,400,200' rel='stylesheet' type='text/css'>
@@ -37,12 +37,21 @@
 				<tbody>
 					<tr ng-repeat="tune in tunes">
 						<td>
-							<a ng-click="tune.editing=true" ng-hide="tune.editing">{{tune.name}}</a>
-							<form ng-submit="updateTuneName($index)" ng-show="tune.editing">
-								<input ng-model="reName" placeholder="{{tune.name}}">
+							<a ng-click="tune.editingName=true" ng-hide="tune.editingName">
+								{{tune.name}}
+							</a>
+							<form ng-submit="updateTune($index)" ng-show="tune.editingName">
+								<input ng-model="tune.name">
 							</form>
 						</td>
-						<td>{{tune.by}}</td>
+						<td>
+							<a ng-click="tune.editingBy=true" ng-hide="tune.editingBy">
+								{{tune.by}}
+							</a>
+							<form ng-submit="updateTune($index)" ng-show="tune.editingBy">
+								<input ng-model="tune.by">
+							</form>							
+						</td>
 						<td><a ng-click="removeTune($index)">✖</a></td>
 					</tr>
 				</tbody>

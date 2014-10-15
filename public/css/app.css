@@ -584,3 +584,14 @@ input,
   display: block;
   color: #12e022;
 }
+section.set .downloadUrl {
+  text-align: center;
+  margin: 20px;
+  display: block;
+}
+section.set ol {
+  width: calc(100% - 200px);
+  float: left;
+  list-style: decimal;
+  padding-left: 40px;
+}

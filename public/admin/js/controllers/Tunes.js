@@ -5,7 +5,8 @@ function Tunes ($scope, $http) {
 	$http.get('/api/tunes').success(function(tunes) {
 		if (tunes) {
 			for (var i=0;i<tunes.length;i++) {
-				tunes.editing = false
+				tunes.editingName = false
+				tunes.editingBy = false
 			}
 			$scope.tunes = tunes
 			$scope.loaded = true
@@ -27,10 +28,12 @@ function Tunes ($scope, $http) {
 		}
 	}
 
-/*	$scope.updateTuneName = function(index) {
-		$http.put()
+	$scope.updateTune = function(index) {
+		$scope.tunes[index].editingName = false
+		$scope.tunes[index].editingBy = false
+		$http.put('/api/tunes/' + $scope.tunes[index]._id, $scope.tunes[index])
 	}
-*/
+
 	$scope.removeTune = function(index) {
 		$http.delete('/api/tunes/' + $scope.tunes[index]._id)
 		$scope.tunes.splice(index, 1)
