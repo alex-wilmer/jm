@@ -22,6 +22,11 @@ function Artists ($scope, $http) {
 		}
 	}
 
+	$scope.updateArtist = function(index) {
+		$scope.artists[index].editingName = false
+		$http.put('/api/artists/' + $scope.artists[index]._id, $scope.artists[index])
+	}
+
 	$scope.removeArtist = function(index) {
 		$http.delete('/api/artists/' + $scope.artists[index]._id)
 		$scope.artists.splice(index, 1)

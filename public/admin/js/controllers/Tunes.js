@@ -4,10 +4,6 @@ function Tunes ($scope, $http) {
 
 	$http.get('/api/tunes').success(function(tunes) {
 		if (tunes) {
-			for (var i=0;i<tunes.length;i++) {
-				tunes.editingName = false
-				tunes.editingBy = false
-			}
 			$scope.tunes = tunes
 			$scope.loaded = true
 		}

@@ -35,7 +35,14 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="artist in artists">
-							<td>{{artist.name}}</td>
+							<td>
+								<a ng-click="artist.editingName=true" ng-hide="artist.editingName">
+									{{artist.name}}
+								</a>
+								<form ng-submit="updateArtist($index)" ng-show="artist.editingName">
+									<input ng-model="artist.name">
+								</form>
+							</td>
 							<td><a ng-click="removeArtist($index)">✖</a></td>
 						</tr>
 					</tbody>
